@@ -15,6 +15,14 @@ class Article extends Model {
         content: {
           type: DataTypes.TEXT,
         },
+
+        createdAt: {
+          type: DataTypes.DATE,
+        },
+
+        updateAt: {
+          type: DataTypes.DATE,
+        },
       },
       {
         sequelize,
