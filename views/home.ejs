@@ -16,7 +16,11 @@
     <%-include("partials/navbar") %>
     <header class="mt-5">
       <div>
-        <h1>Home</h1>
+        <%for(let article of articles) { %>
+
+        <h1><%= article.title %></h1>
+
+        <% } %>
       </div>
     </header>
 

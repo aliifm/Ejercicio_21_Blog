@@ -19,7 +19,9 @@
 const { Article } = require("../models");
 
 async function showHome(req, res) {
-  res.render("home");
+  const articles = await Article.findAll();
+
+  res.render("home", { articles });
 }
 
 async function showContact(req, res) {
