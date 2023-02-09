@@ -11,6 +11,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <%-include("partials/navbar") %>
@@ -18,7 +19,13 @@
       <div>
         <%for(let article of articles) { %>
 
-        <h1><%= article.title %></h1>
+        <div class="card mb-4">
+          <div class="card-header"><h5 class="card-title"><%= article.title %></h5></div>
+          <div class="card-body">
+            <p class="card-text"><%= article.content %></p>
+            <a href="#" class="btn btn-dark">Leer más</a>
+          </div>
+        </div>
 
         <% } %>
       </div>
