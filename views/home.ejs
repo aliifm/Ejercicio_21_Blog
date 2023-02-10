@@ -19,24 +19,29 @@
       <header>
         <%for(let article of articles) { %>
 
-        <div class="card text-bg-light mb-4 shadow text-center">
-          <img src="<%= article.image  %>" class="card-img-top img-fluid" alt="img-articulo" />
-          <div class="card-header"><%= article.title %></div>
-          <div class="card-body">
-            <p class="card-text"><%= article.content %></p>
-            <a href="/articulos/<%= article.id  %>" class="btn btn-secondary btn-ver-mas"
-              >Ver más</a
-            >
-          </div>
-
-          <div class="card-footer text-muted">
-            <small><%= article.createdAt %></small>
+        <div class="container mb-5">
+          <div class="row">
+            <div class="col-4">
+              <img src="<%= article.image  %>" class="img-fluid" alt="img-articulo" />
+            </div>
+            <div class="col-8">
+              <div class="border-bottom mb-2">
+                <h3 class="fw-bold"><%= article.title %></h3>
+                <p><%= article.content %></p>
+                <div>
+                  <a class="btn-ver-mas text-decoration-none" href="/articulos/<%= article.id %>"
+                    >Ver mas...</a
+                  >
+                </div>
+              </div>
+              <small>Autor</small> <span><%= article.createdAt %></span>
+            </div>
           </div>
         </div>
-
         <% } %>
       </header>
     </div>
+
     <%-include("partials/footer") %>
 
     <script

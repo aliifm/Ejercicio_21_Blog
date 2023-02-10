@@ -13,7 +13,7 @@ async function show(req, res) {
     where: { id: articleId },
     include: [{ model: Comment }, { model: User }],
   });
-  // res.send(article);
+  //res.send(article);
   res.render("article", { article });
 }
 

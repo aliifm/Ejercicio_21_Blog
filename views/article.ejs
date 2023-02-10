@@ -15,13 +15,40 @@
   </head>
   <body>
     <%-include("partials/navbar") %>
-    <div class="container mt-5">
-      <h1><%= article.title %></h1>
-      <p><%= article.comments[0].content %></p>
+    <section class="container">
+      <div class="m-5 p-3">
+        <div class="text-center">
+          <div class="border-bottom">
+            <h3 class="fw-bold"><%= article.title %></h3>
+            <small class="fst-italic"
+              >Autor: <%= article.user.firstname %> <%= article.user.lastname %></small
+            >
+            <small class="fst-italic">| <%=article.user.email %></small>
+            <!-- <span class="fst-italic"><%= article.createdAt %></span>-->
+          </div>
+          <img src="<%= article.image  %>" class="img-fluid m-3" alt="img-articulo" />
+        </div>
 
-      <h3><%= article.user.firstname %></h3>
-      <small><%= article.comments[0].userId %></small>
-    </div>
+        <p><%= article.content %></p>
+      </div>
+      <div class="card m-5 bg-transparent border-2">
+        <div class="row card-body">
+          <div class="col-2">
+            <img src="<%= article.user.avatar  %>" class="img-fluid m-3 avatar" alt="img-avatar" />
+          </div>
+          <div class="col-10">
+            <h5>Nombre de Persona</h5>
+            <small>10/02/2023</small>
+            <p class="fst-italic">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, cumque
+              voluptatibus? Nisi provident culpa accusantium laborum, molestiae veniam expedita
+              earum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <%-include("partials/footer") %>
 
     <script

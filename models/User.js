@@ -18,6 +18,12 @@ class User extends Model {
         permissions: {
           type: DataTypes.TINYINT,
         },
+        email: {
+          type: DataTypes.STRING,
+        },
+        avatar: {
+          type: DataTypes.STRING,
+        },
       },
       {
         sequelize,
