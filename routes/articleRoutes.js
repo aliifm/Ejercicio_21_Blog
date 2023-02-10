@@ -8,7 +8,7 @@ const articleController = require("../controllers/articleController");
 router.get("/", articleController.index);
 router.get("/crear", articleController.create);
 router.get("/", articleController.store);
-router.get("/:id", articleController.show);
+router.get("/:id", articleController.show); // mostrar cada articulo por su id en su pagina individual
 router.get("/:id/editar", articleController.edit);
 router.get("/:id", articleController.update);
 router.get("/:id", articleController.destroy);

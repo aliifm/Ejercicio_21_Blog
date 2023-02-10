@@ -16,25 +16,7 @@
   <body>
     <%-include("partials/navbar") %>
     <div class="container mt-5">
-      <header>
-        <%for(let article of articles) { %>
-
-        <div class="card text-bg-light mb-4 shadow text-center">
-          <div class="card-header"><%= article.title %></div>
-          <div class="card-body">
-            <p class="card-text"><%= article.content %></p>
-            <a href="/articulos/<%= article.id  %>" class="btn btn-secondary btn-ver-mas"
-              >Ver más</a
-            >
-          </div>
-
-          <div class="card-footer text-muted">
-            <small><%= article.createdAt %></small>
-          </div>
-        </div>
-
-        <% } %>
-      </header>
+      <h1>Articulo por id</h1>
     </div>
     <%-include("partials/footer") %>
 

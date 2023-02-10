@@ -15,6 +15,9 @@ class User extends Model {
         lastname: {
           type: DataTypes.STRING,
         },
+        permissions: {
+          type: DataTypes.TINYINT,
+        },
       },
       {
         sequelize,
