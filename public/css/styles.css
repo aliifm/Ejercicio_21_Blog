@@ -63,6 +63,115 @@ body {
   color: #212529;
 }
 
+.card-black {
+  width: 800px;
+  height: 200px;
+  border-radius: 30px;
+  background: #212529;
+  box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+  color: white;
+  margin: 80px;
+  padding: 25px;
+}
+
+.btn-enviar-comentario {
+  position: relative;
+  padding: 1em 1.8em;
+  outline: none;
+  border: 1px solid #212529;
+  background: #212529;
+  color: #37ff8b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-enviar-comentario:hover {
+  box-shadow: 0 0 10px #37ff8b, 0 0 25px #006b83, 0 0 50px #37ff8b;
+  transition-delay: 0.6s;
+}
+
+.btn-enviar-comentario span {
+  position: absolute;
+}
+
+.btn-enviar-comentario span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #37ff8b);
+}
+
+.btn-enviar-comentario:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.7s;
+}
+
+.btn-enviar-comentario span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #006b83);
+}
+
+.btn-enviar-comentario:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.7s;
+  transition-delay: 0.35s;
+}
+
+.btn-enviar-comentario span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #37ff8b);
+}
+
+.btn-enviar-comentario:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.17s;
+}
+
+.btn-enviar-comentario span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #006b83);
+}
+
+.btn-enviar-comentario:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
+}
+
+.btn-enviar-comentario:active {
+  background: #37ff8b;
+  background: linear-gradient(to top right, #37ff8b #006b83);
+  color: #bfbfbf;
+  box-shadow: 0 0 8px #37ff8b, 0 0 8px #006b83, 0 0 8px #37ff8b;
+  transition: 0.1s;
+}
+
+.btn-enviar-comentario:active
+  span:nth-child(1)
+  span:nth-child(2)
+  span:nth-child(2)
+  span:nth-child(2) {
+  transition: none;
+  transition-delay: none;
+}
+
 /*/----css*footer--*/
 
 .main {

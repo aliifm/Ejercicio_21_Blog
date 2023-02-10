@@ -30,22 +30,26 @@
         </div>
 
         <p><%= article.content %></p>
-      </div>
-      <% for (const comment of article.comments) { %>
-      <div class="card m-5 bg-transparent border-3">
-        <div class="row">
-          <div class="col-2">
-            <img src="<%= article.user.avatar  %>" class="img-fluid m-3 avatar" alt="img-avatar" />
-          </div>
-          <div class="col-10">
-            <h5>Nombre del que hace el comentario</h5>
-            <small><%= comment.createdAt %></small>
-            <p class="fst-italic"><%= comment.content %></p>
+
+        <% for (const comment of article.comments) { %>
+        <div class="card-black">
+          <div class="row">
+            <div class="col-2">
+              <img
+                src="<%= article.user.avatar  %>"
+                class="img-fluid m-3 avatar"
+                alt="img-avatar"
+              />
+            </div>
+            <div class="col-10">
+              <h5>Nombre del que hace el comentario</h5>
+              <small><%= comment.createdAt %></small>
+              <p class="fst-italic"><%= comment.content %></p>
+            </div>
           </div>
         </div>
-      </div>
-      <% } %>
-      <div>
+        <% } %>
+
         <form>
           <label for="#" class="form-label"> Enviar Comentario</label>
 
@@ -62,7 +66,7 @@
           <div class="mb-3">
             <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" />
           </div>
-          <div class="mb-3">
+          <div class="mb-5">
             <input
               type="email"
               class="form-control"
@@ -76,7 +80,12 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-dark mb-5">Enviar comentario</button>
+          <button class="btn-enviar-comentario mb-5" type="submit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span> Enviar Comentario
+          </button>
         </form>
       </div>
     </section>

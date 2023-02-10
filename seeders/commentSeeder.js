@@ -8,7 +8,7 @@ module.exports = async () => {
 
   for (let i = 0; i < 100; i++) {
     comments.push({
-      content: faker.lorem.words(50),
+      content: faker.lorem.words(30),
       createdAt: faker.date.past(2),
       updateAt: faker.date.past(2),
       userId: faker.datatype.number({ min: 1, max: 10 }),
