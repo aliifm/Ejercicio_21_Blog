@@ -34,7 +34,11 @@
                   >
                 </div>
               </div>
-              <small>Autor</small> <span><%= article.createdAt %></span>
+              <small class="fst-italic"
+                >Author: <%= article.user.firstname %> <%= article.user.lastname %></small
+              >
+              <small class="fst-italic">| <%=article.user.email %></small> |
+              <span class="fst-italic"><%= article.createdAt %></span>
             </div>
           </div>
         </div>

@@ -31,21 +31,53 @@
 
         <p><%= article.content %></p>
       </div>
-      <div class="card m-5 bg-transparent border-2">
-        <div class="row card-body">
+      <% for (const comment of article.comments) { %>
+      <div class="card m-5 bg-transparent border-3">
+        <div class="row">
           <div class="col-2">
             <img src="<%= article.user.avatar  %>" class="img-fluid m-3 avatar" alt="img-avatar" />
           </div>
           <div class="col-10">
-            <h5>Nombre de Persona</h5>
-            <small>10/02/2023</small>
-            <p class="fst-italic">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, cumque
-              voluptatibus? Nisi provident culpa accusantium laborum, molestiae veniam expedita
-              earum.
-            </p>
+            <h5>Nombre del que hace el comentario</h5>
+            <small><%= comment.createdAt %></small>
+            <p class="fst-italic"><%= comment.content %></p>
           </div>
         </div>
+      </div>
+      <% } %>
+      <div>
+        <form>
+          <label for="#" class="form-label"> Enviar Comentario</label>
+
+          <div>
+            <textarea
+              class="form-control mb-3"
+              placeholder="Ingrese su comentario aquí..."
+              id="comment"
+              name="comment"
+              style="height: 100px"
+            ></textarea>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" />
+          </div>
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="Email"
+            />
+            <div id="emailHelp" class="form-text">
+              Tu dirección de correo electrónico no será publicada.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-dark mb-5">Enviar comentario</button>
+        </form>
       </div>
     </section>
 
