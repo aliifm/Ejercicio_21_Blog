@@ -20,6 +20,7 @@
         <%for(let article of articles) { %>
 
         <div class="card text-bg-light mb-4 shadow text-center">
+          <img src="<%= article.image  %>" class="card-img-top img-fluid" alt="img-articulo" />
           <div class="card-header"><%= article.title %></div>
           <div class="card-body">
             <p class="card-text"><%= article.content %></p>

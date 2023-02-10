@@ -16,7 +16,11 @@
   <body>
     <%-include("partials/navbar") %>
     <div class="container mt-5">
-      <h1>Articulo por id</h1>
+      <h1><%= article.title %></h1>
+      <p><%= article.comments[0].content %></p>
+
+      <h3><%= article.user.firstname %></h3>
+      <small><%= article.comments[0].userId %></small>
     </div>
     <%-include("partials/footer") %>
 

@@ -1,4 +1,4 @@
-const { Article } = require("../models");
+const { Article, Comment, User } = require("../models");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -8,8 +8,13 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  console.log(req.params.id);
-  //const user=await User.findByPk(123);console.log(user);
+  const articleId = req.params.id;
+  const article = await Article.findOne({
+    where: { id: articleId },
+    include: [{ model: Comment }, { model: User }],
+  });
+  // res.send(article);
+  res.render("article", { article });
 }
 
 // Show the form for creating a new resource
