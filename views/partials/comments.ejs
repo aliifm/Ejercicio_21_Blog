@@ -1,0 +1,12 @@
+<% for (const comment of comments) { %>
+<div class="row rounded gy-2 bg-dark bg-gradient my-2 py-2">
+  <div class="col-2">
+    <img src="<%= comment.user.avatar  %>" class="img-fluid m-3 avatar" alt="img-avatar" />
+  </div>
+  <div class="col-10 text-white">
+    <h5><%= comment.user.firstname%></h5>
+    <small>Hace: <%= formatDistance(new Date(),comment.createdAt) %></small>
+    <p class="fst-italic"><%= comment.content %></p>
+  </div>
+</div>
+<% } %>

@@ -16,7 +16,11 @@
   <body>
     <%-include("partials/navbar") %>
     <div class="container mt-5">
-      <main><%- include('./partials/articles.ejs') %></main>
+      <main>
+        <section class="container">
+          <div class="row"><%- include('./partials/articles.ejs') %></div>
+        </section>
+      </main>
     </div>
 
     <%-include("partials/footer") %>

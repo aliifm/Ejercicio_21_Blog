@@ -3,8 +3,10 @@ const { Article, Comment, User } = require("../models");
 
 // Display a listing of the resource.
 async function index(req, res) {
-  const articles = await Article.findAll();
-  res.send("articles", { articles });
+  const articles = await Article.findAll({
+    order: [["createdAt", "DESC"]],
+  });
+  res.json(articles);
 }
 
 // Display the specified resource.
@@ -14,7 +16,12 @@ async function show(req, res) {
     where: { id: articleId },
     include: [{ model: Comment }, { model: User }],
   });
-  res.render("article", { article, format, formatDistance });
+
+  const comments = await Comment.findAll({
+    where: { articleId: articleId },
+    include: [{ model: User }],
+  });
+  res.render("article", { article, comments, format, formatDistance });
 }
 
 // Show the form for creating a new resource

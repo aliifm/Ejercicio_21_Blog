@@ -14,82 +14,10 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <%-include("partials/navbar") %>
+    <%-include("partials/navbar") %> <%- include('partials/article.ejs') %>
     <section class="container">
-      <div class="m-5 p-3">
-        <div class="text-center">
-          <div class="border-bottom">
-            <h3 class="fw-bold"><%= article.title %></h3>
-            <small class="fst-italic"
-              >Autor: <%= article.user.firstname %> <%= article.user.lastname %></small
-            >
-            <small class="fst-italic">| <%=article.user.email %></small>
-            <span class="fst-italic">| <%=format(article.createdAt,"dd MMMM yyyy") %></span>
-          </div>
-          <img src="<%= article.image  %>" class="img-fluid m-3" alt="img-articulo" />
-        </div>
-
-        <p><%= article.content %></p>
-
-        <% for (const comment of article.comments) { %>
-        <div class="card-black">
-          <div class="row">
-            <div class="col-2">
-              <img
-                src="<%= article.user.avatar  %>"
-                class="img-fluid m-3 avatar"
-                alt="img-avatar"
-              />
-            </div>
-            <div class="col-10">
-              <h5>Nombre del que hace el comentario</h5>
-              <small>Hace: <%= formatDistance(new Date(),comment.createdAt) %></small>
-              <p class="fst-italic"><%= comment.content %></p>
-            </div>
-          </div>
-        </div>
-        <% } %>
-
-        <form>
-          <label for="#" class="form-label"> Enviar Comentario</label>
-
-          <div>
-            <textarea
-              class="form-control mb-3"
-              placeholder="Ingrese su comentario aquí..."
-              id="comment"
-              name="comment"
-              style="height: 100px"
-            ></textarea>
-          </div>
-
-          <div class="mb-3">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" />
-          </div>
-          <div class="mb-5">
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              aria-describedby="emailHelp"
-              placeholder="Email"
-            />
-            <div id="emailHelp" class="form-text">
-              Tu dirección de correo electrónico no será publicada.
-            </div>
-          </div>
-
-          <button class="btn-enviar-comentario mb-5" type="submit">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span> Enviar Comentario
-          </button>
-        </form>
-      </div>
+      <div class="row"><%- include('partials/comments') %></div>
     </section>
-
     <%-include("partials/footer") %>
 
     <script

@@ -16,6 +16,7 @@
  * no debería existir.
  */
 
+const articleController = require("./articleController");
 const { Article, User } = require("../models");
 const { format, locale } = require("date-fns");
 
@@ -23,7 +24,6 @@ async function showHome(req, res) {
   const articles = await Article.findAll({
     order: [["createdAt", "DESC"]],
   });
-
   res.render("home", { articles, format });
 }
 

@@ -9,7 +9,7 @@ module.exports = async () => {
   for (let i = 0; i < 10; i++) {
     articles.push({
       title: faker.lorem.sentence(5),
-      content: faker.lorem.lines(10),
+      content: faker.lorem.lines(110),
       image: faker.image.abstract(700, 400, true),
       userId: faker.datatype.number({ min: 1, max: 10 }),
       createdAt: faker.date.past(5),

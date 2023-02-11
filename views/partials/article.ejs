@@ -1,0 +1,9 @@
+<section class="container text-center">
+  <h1 class="fw-bold mt-4"><%= article.title %></h1>
+  <small class="fst-italic">Autor: <%= %> <%= %></small>
+  <small class="fst-italic">| <%= %></small>
+  <p class="fst-italic">| <%=format(article.createdAt,"dd MMMM yyyy") %></p>
+  <img src="<%= article.image  %>" class="img-fluid d-block mx-auto" alt="img-articulo" />
+
+  <p class="text-center my-4 fs-3 fw-light lh-lg"><%= article.content %></p>
+</section>
