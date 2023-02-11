@@ -5,7 +5,7 @@ const adminController = require("../controllers/adminController");
 // Rutas relacionadas al panel de control (Admin):
 // ...
 
-router.get("/admin", adminController.index);
+router.get("/", adminController.index);
 
 router.get("/admin/crear", adminController.create);
 

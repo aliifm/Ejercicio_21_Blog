@@ -4,7 +4,7 @@ const { Article, Comment, User } = require("../models");
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
-  res.json(articles);
+  res.send("articles", { articles });
 }
 
 // Display the specified resource.
