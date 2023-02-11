@@ -17,11 +17,12 @@
  */
 
 const { Article, User } = require("../models");
+const { format } = require("date-fns");
 
 async function showHome(req, res) {
   const articles = await Article.findAll({ include: User });
 
-  res.render("home", { articles });
+  res.render("home", { articles, format });
 }
 
 async function showContact(req, res) {

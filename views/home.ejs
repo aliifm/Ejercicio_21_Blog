@@ -34,11 +34,7 @@
                   >
                 </div>
               </div>
-              <small class="fst-italic"
-                >Author: <%= article.user.firstname %> <%= article.user.lastname %></small
-              >
-              <small class="fst-italic">| <%=article.user.email %></small> |
-              <span class="fst-italic"><%= article.createdAt %></span>
+              <span class="fst-italic"><%=format(article.createdAt,"dd MMMM yyyy") %></span>
             </div>
           </div>
         </div>

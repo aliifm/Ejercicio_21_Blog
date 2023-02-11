@@ -24,7 +24,7 @@
               >Autor: <%= article.user.firstname %> <%= article.user.lastname %></small
             >
             <small class="fst-italic">| <%=article.user.email %></small>
-            <!-- <span class="fst-italic"><%= article.createdAt %></span>-->
+            <span class="fst-italic">| <%=format(article.createdAt,"dd MMMM yyyy") %></span>
           </div>
           <img src="<%= article.image  %>" class="img-fluid m-3" alt="img-articulo" />
         </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-10">
               <h5>Nombre del que hace el comentario</h5>
-              <small><%= comment.createdAt %></small>
+              <small>Hace: <%= formatDistance(new Date(),comment.createdAt) %></small>
               <p class="fst-italic"><%= comment.content %></p>
             </div>
           </div>

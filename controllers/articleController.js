@@ -1,3 +1,4 @@
+const { format, formatDistance } = require("date-fns");
 const { Article, Comment, User } = require("../models");
 
 // Display a listing of the resource.
@@ -13,8 +14,7 @@ async function show(req, res) {
     where: { id: articleId },
     include: [{ model: Comment }, { model: User }],
   });
-  //res.send(article);
-  res.render("article", { article });
+  res.render("article", { article, format, formatDistance });
 }
 
 // Show the form for creating a new resource
