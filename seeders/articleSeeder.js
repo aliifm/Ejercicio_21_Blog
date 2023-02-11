@@ -12,6 +12,7 @@ module.exports = async () => {
       content: faker.lorem.lines(10),
       image: faker.image.abstract(700, 400, true),
       userId: faker.datatype.number({ min: 1, max: 10 }),
+      createdAt: faker.date.past(5),
     });
   }
 
