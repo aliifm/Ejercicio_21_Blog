@@ -16,7 +16,10 @@
   <body>
     <%-include("partials/navbar") %> <%- include('partials/article.ejs') %>
     <section class="container">
-      <div class="row"><%- include('partials/comments') %></div>
+      <%- include('partials/comments') %></div>
+    </section>
+    <section class="container">
+      <%- include('partials/formComments') %>
     </section>
     <%-include("partials/footer") %>
 
