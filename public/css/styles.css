@@ -1,3 +1,4 @@
+/* Colocar aquí CSS "propio" */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 * {
   margin: 0;
@@ -5,8 +6,32 @@
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
 }
+/* hero  */
+.spinner {
+  background-image: linear-gradient(#37ff8b 35%, #212529);
+  width: 100px;
+  height: 100px;
+  animation: spinning82341 1.7s linear infinite;
+  text-align: center;
+  border-radius: 50px;
+  filter: blur(1px);
+  box-shadow: 0px -5px 20px 0px#37ff8b, 0px 5px 20px 0px#212529;
+}
 
-/* Colocar aquí CSS "propio" */
+.spinner1 {
+  background-color: #9e9e9e;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  filter: blur(10px);
+}
+
+@keyframes spinning82341 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* verde maquina #8cb1a6 */
 
 /* === removing default btn-eleven style ===*/
@@ -76,102 +101,62 @@ background: rgb(214, 214, 214);
 }
 
 .btn-enviar-comentario {
+  --color: #212529;
+  --color2: #37ff8b;
+  padding: 0.8em 1.75em;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 0.3px solid var(--color);
+  transition: 0.5s;
   position: relative;
-  padding: 1em 1.8em;
-  outline: none;
-  border: 1px solid #212529;
-  background: #212529;
-  color: #37ff8b;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 15px;
   overflow: hidden;
-  transition: 0.2s;
-  border-radius: 20px;
   cursor: pointer;
-  font-weight: bold;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: var(--color);
+}
+
+.btn-enviar-comentario::after,
+.btn-enviar-comentario::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: skew(90deg) translate(-50%, -50%);
+  position: absolute;
+  inset: 50%;
+  left: 25%;
+  z-index: -1;
+  transition: 0.5s ease-out;
+  background-color: var(--color);
+}
+
+.btn-enviar-comentario::before {
+  top: -50%;
+  left: -25%;
+  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.btn-enviar-comentario:hover::before {
+  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.btn-enviar-comentario:hover::after {
+  transform: skew(45deg) translate(-50%, -50%);
 }
 
 .btn-enviar-comentario:hover {
-  box-shadow: 0 0 10px #37ff8b, 0 0 25px #006b83, 0 0 50px #37ff8b;
-  transition-delay: 0.6s;
-}
-
-.btn-enviar-comentario span {
-  position: absolute;
-}
-
-.btn-enviar-comentario span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #37ff8b);
-}
-
-.btn-enviar-comentario:hover span:nth-child(1) {
-  left: 100%;
-  transition: 0.7s;
-}
-
-.btn-enviar-comentario span:nth-child(3) {
-  bottom: 0;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #006b83);
-}
-
-.btn-enviar-comentario:hover span:nth-child(3) {
-  right: 100%;
-  transition: 0.7s;
-  transition-delay: 0.35s;
-}
-
-.btn-enviar-comentario span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, #37ff8b);
-}
-
-.btn-enviar-comentario:hover span:nth-child(2) {
-  top: 100%;
-  transition: 0.7s;
-  transition-delay: 0.17s;
-}
-
-.btn-enviar-comentario span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, #006b83);
-}
-
-.btn-enviar-comentario:hover span:nth-child(4) {
-  bottom: 100%;
-  transition: 0.7s;
-  transition-delay: 0.52s;
+  color: var(--color2);
 }
 
 .btn-enviar-comentario:active {
-  background: #37ff8b;
-  background: linear-gradient(to top right, #37ff8b #006b83);
-  color: #bfbfbf;
-  box-shadow: 0 0 8px #37ff8b, 0 0 8px #006b83, 0 0 8px #37ff8b;
-  transition: 0.1s;
+  filter: brightness(0.7);
+  transform: scale(0.98);
 }
 
-.btn-enviar-comentario:active
-  span:nth-child(1)
-  span:nth-child(2)
-  span:nth-child(2)
-  span:nth-child(2) {
-  transition: none;
-  transition-delay: none;
-}
+/* termina btn-enviar-comentario*/
 
 /*/----css*footer--*/
 
