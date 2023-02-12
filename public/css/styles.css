@@ -6,35 +6,12 @@
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
 }
-/* hero  */
-.spinner {
-  background-image: linear-gradient(#37ff8b 35%, #212529);
-  width: 100px;
-  height: 100px;
-  animation: spinning82341 1.7s linear infinite;
-  text-align: center;
-  border-radius: 50px;
-  filter: blur(1px);
-  box-shadow: 0px -5px 20px 0px#37ff8b, 0px 5px 20px 0px#212529;
+
+#box1 {
+  padding: 30px;
 }
 
-.spinner1 {
-  background-color: #9e9e9e;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  filter: blur(10px);
-}
-
-@keyframes spinning82341 {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* verde maquina #8cb1a6 */
-
-/* === removing default btn-eleven style ===*/
+/* === btn-eleven style ===*/
 .btn-eleven {
   margin: 0;
   height: auto;
@@ -89,136 +66,6 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-}
-.btn-ver-mas {
-  color: #212529;
-}
-
-.card-black {
-  width: 800px;
-  height: 200px;
-  border-radius: 30px;
-  background: #212529;
-  box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
-  color: white;
-  margin: 80px;
-  padding: 25px;
-}
-
-.btn-enviar {
-  --color: #212529;
-  --color2: #37ff8b;
-  padding: 0.8em 1.75em;
-  background-color: transparent;
-  border-radius: 6px;
-  border: 0.3px solid var(--color);
-  transition: 0.5s;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  z-index: 1;
-  font-weight: 300;
-  font-size: 17px;
-  text-transform: uppercase;
-  color: var(--color);
-}
-
-.btn-enviar::after,
-.btn-enviar::before {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  transform: skew(90deg) translate(-50%, -50%);
-  position: absolute;
-  inset: 50%;
-  left: 25%;
-  z-index: -1;
-  transition: 0.5s ease-out;
-  background-color: var(--color);
-}
-
-.btn-enviar::before {
-  top: -50%;
-  left: -25%;
-  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btn-enviar:hover::before {
-  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btn-enviar:hover::after {
-  transform: skew(45deg) translate(-50%, -50%);
-}
-
-.btn-enviar:hover {
-  color: var(--color2);
-}
-
-.btn-enviar:active {
-  filter: brightness(0.7);
-  transform: scale(0.98);
-}
-
-/* termina btn-enviar*/
-
-/*Empieza btn-eliminar*/
-
-.btn-eliminar {
-  --color: #ff0000;
-  --color2: #212529;
-  padding: 0.8em 1.75em;
-  background-color: transparent;
-  border-radius: 6px;
-  border: 0.3px solid var(--color);
-  transition: 0.5s;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  z-index: 1;
-  font-weight: 300;
-  font-size: 17px;
-  text-transform: uppercase;
-  color: var(--color);
-}
-
-.btn-eliminar::after,
-.btn-eliminar::before {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  transform: skew(90deg) translate(-50%, -50%);
-  position: absolute;
-  inset: 50%;
-  left: 25%;
-  z-index: -1;
-  transition: 0.5s ease-out;
-  background-color: var(--color);
-}
-
-.btn-eliminar::before {
-  top: -50%;
-  left: -25%;
-  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btn-eliminar:hover::before {
-  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btn-eliminar:hover::after {
-  transform: skew(45deg) translate(-50%, -50%);
-}
-
-.btn-eliminar:hover {
-  color: var(--color2);
-}
-
-.btn-eliminar:active {
-  filter: brightness(0.7);
-  transform: scale(0.98);
 }
 
 /*/----css*footer--*/
@@ -451,18 +298,4 @@ footer .copyright {
   100% {
     left: 100%;
   }
-}
-
-.footer_logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 20px;
-  color: #fff;
-  background: #767676;
-  margin-right: 15px;
-  padding: 5px;
-  cursor: pointer;
 }

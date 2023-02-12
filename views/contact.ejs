@@ -16,7 +16,54 @@
   <body>
     <%-include("partials/navbar") %>
 
-    <h1>Contact</h1>
+    <header class="text-center rounded mb-5 p-3">
+      <div class="row g-4">
+        <h2 class="fs-1 fw-bold">Hello, how can we help you?</h2>
+        <p>
+          Didn't find an answer in the Help Center? We'll start with a few questions and get you to
+          the right place. Sign in for personalized assistance.
+        </p>
+        <form>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              name="firstname"
+              placeholder="Name"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Email address"
+            />
+            <div id="emailHelp" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+            />
+          </div>
+
+          <textarea
+            class="form-control mb-3"
+            placeholder="Details..."
+            id="comment"
+            name="comment"
+            rows="7"
+          ></textarea>
+
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+      </div>
+    </header>
     <%-include("partials/footer") %>
     <script
       type="module"

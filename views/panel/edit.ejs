@@ -23,26 +23,26 @@
         action="/panel/admin/<%= article.id %>/update"
       >
         <div class="bg-light m-0 p-0 w-100">
-          <h1 class="fs-3 p-2">Crear nuevo articulo</h1>
+          <h1 class="fs-3 p-2">Edit article</h1>
         </div>
         <div class="mb-3 p-2">
-          <label for="title" class="form-label fw-bold">Titulo</label>
+          <label for="title" class="form-label fw-bold">Title</label>
           <input
             type="text"
             name="title"
             class="form-control"
             id="title"
-            placeholder="Ingresar titulo..."
+            placeholder="Enter title..."
             value="<%= article.title %>"
           />
         </div>
         <div class="mb-3 p-2">
-          <label for="content" class="form-label fw-bold">Contenido</label>
+          <label for="content" class="form-label fw-bold">Content</label>
           <textarea
             class="form-control"
             name="content"
             id="content"
-            placeholder="Ingresar contenido..."
+            placeholder="Enter content..."
             rows="10"
           >
 <%= article.content %></textarea
@@ -55,15 +55,17 @@
             class="form-control"
             id="image"
             name="image"
-            placeholder="Inresar url de imagen..."
+            placeholder="Enter image url..."
             value="<%= article.image %>"
           />
         </div>
 
-        <button type="submit" class="btn btn-success m-2">Guardar</button>
+        <button type="submit" class="btn btn-dark m-2">Save</button>
       </form>
       <div class="container mx-auto my-2 px-2">
-        <a class="d-block mx-auto text-decoration-none" href="/panel/admin/">Volver</a>
+        <a class="d-block mx-auto text-decoration-none text-dark m-5" href="/panel/admin/"
+          >Return</a
+        >
       </div>
     </div>
 
