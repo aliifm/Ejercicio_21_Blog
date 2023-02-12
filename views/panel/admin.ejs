@@ -16,16 +16,16 @@
   <body>
     <%-include("../partials/navbar") %>
     <div class="container d-flex justify-content-between pt-4">
-      <h1 class="d-inline">Lista de articulos</h1>
-      <a href="/panel/admin/crear"><button class="btn btn-outline-success">Nuevo</button></a>
+      <h2 class="d-inline">Lista de articulos</h2>
+      <a href="/panel/admin/crear"><button class="btn btn-success btn-m">Nuevo</button></a>
     </div>
     <section class="container">
-      <table class="table table-striped table-hover table-bordered mt-4">
+      <table class="table table-striped table-hover border shadow mt-5">
         <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Titulo</th>
-            <th scope="col">Content</th>
+            <th scope="col ">Content</th>
             <th scope="col">Image</th>
             <th scope="çol">UserID</th>
             <th scope="çol">CreatedAt</th>
@@ -46,9 +46,11 @@
 
             <td>
               <a href="/panel/admin/<%=item.id%>/edit "
-                ><button class="btn btn-primary mx-2">Editar</button></a
-              ><a href="/panel/admin/<%=item.id%>/destroy/"
-                ><button type="button" class="btn btn-outline-danger">Eliminar</button></a
+                ><button class="btn btn-dark mx-2 mb-2">Editar</button></a
+              >
+
+              <a href="/panel/admin/<%=item.id%>/destroy/"
+                ><button type="button" class="btn btn-danger">Eliminar</button></a
               >
             </td>
             <% } %>

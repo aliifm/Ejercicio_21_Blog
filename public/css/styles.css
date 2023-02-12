@@ -77,8 +77,13 @@
 }
 
 body {
-background: rgb(214, 214, 214);
-  background: linear-gradient(90deg, rgba(214, 214, 214, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(214, 214, 214, 1) 100%);
+  background: rgb(214, 214, 214);
+  background: linear-gradient(
+    90deg,
+    rgba(214, 214, 214, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(214, 214, 214, 1) 100%
+  );
 }
 .avatar {
   width: 100px;
@@ -100,7 +105,7 @@ background: rgb(214, 214, 214);
   padding: 25px;
 }
 
-.btn-enviar-comentario {
+.btn-enviar {
   --color: #212529;
   --color2: #37ff8b;
   padding: 0.8em 1.75em;
@@ -118,8 +123,8 @@ background: rgb(214, 214, 214);
   color: var(--color);
 }
 
-.btn-enviar-comentario::after,
-.btn-enviar-comentario::before {
+.btn-enviar::after,
+.btn-enviar::before {
   content: "";
   display: block;
   height: 100%;
@@ -133,30 +138,88 @@ background: rgb(214, 214, 214);
   background-color: var(--color);
 }
 
-.btn-enviar-comentario::before {
+.btn-enviar::before {
   top: -50%;
   left: -25%;
   transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
 }
 
-.btn-enviar-comentario:hover::before {
+.btn-enviar:hover::before {
   transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
 }
 
-.btn-enviar-comentario:hover::after {
+.btn-enviar:hover::after {
   transform: skew(45deg) translate(-50%, -50%);
 }
 
-.btn-enviar-comentario:hover {
+.btn-enviar:hover {
   color: var(--color2);
 }
 
-.btn-enviar-comentario:active {
+.btn-enviar:active {
   filter: brightness(0.7);
   transform: scale(0.98);
 }
 
-/* termina btn-enviar-comentario*/
+/* termina btn-enviar*/
+
+/*Empieza btn-eliminar*/
+
+.btn-eliminar {
+  --color: #ff0000;
+  --color2: #212529;
+  padding: 0.8em 1.75em;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 0.3px solid var(--color);
+  transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: var(--color);
+}
+
+.btn-eliminar::after,
+.btn-eliminar::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: skew(90deg) translate(-50%, -50%);
+  position: absolute;
+  inset: 50%;
+  left: 25%;
+  z-index: -1;
+  transition: 0.5s ease-out;
+  background-color: var(--color);
+}
+
+.btn-eliminar::before {
+  top: -50%;
+  left: -25%;
+  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.btn-eliminar:hover::before {
+  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.btn-eliminar:hover::after {
+  transform: skew(45deg) translate(-50%, -50%);
+}
+
+.btn-eliminar:hover {
+  color: var(--color2);
+}
+
+.btn-eliminar:active {
+  filter: brightness(0.7);
+  transform: scale(0.98);
+}
 
 /*/----css*footer--*/
 
