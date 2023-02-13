@@ -6,6 +6,10 @@
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
 }
+.imageCar {
+  width: 500px;
+  height: 300px;
+}
 
 #box1 {
   padding: 30px;
@@ -187,16 +191,12 @@ footer {
   line-height: 20px;
 }
 
-
-
 .footer_logo {
   width: 80px;
   position: relative;
   top: -23px;
   left: -20px;
 }
-
-
 
 .col h3 {
   width: fit-content;
