@@ -34,6 +34,7 @@
             class="form-control"
             id="title"
             placeholder="Enter title..."
+            required
           />
         </div>
         <div class="mb-3 p-2">
@@ -43,11 +44,12 @@
             name="content"
             id="content"
             placeholder="Enter content..."
+            required
           ></textarea>
         </div>
         <div class="mb-3 p-2">
           <label for="image" class="form-label fw-bold">Image</label>
-          <input type="file" class="form-control" id="image" name="image" />
+          <input type="file" class="form-control" id="image" name="image" required />
         </div>
         <div class="mb-3 p-2">
           <label for="userId" class="form-label fw-bold">UserID</label>
@@ -57,6 +59,7 @@
             id="userId"
             name="userId"
             placeholder="Enter userId..."
+            required
           />
         </div>
         <button type="submit" class="btn btn-dark m-2">Save</button>
