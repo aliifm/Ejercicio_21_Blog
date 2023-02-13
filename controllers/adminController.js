@@ -37,6 +37,7 @@ async function store(req, res) {
       content: content,
       image: files.image.newFilename,
     });
+
     article.save();
     res.redirect("/");
   });
@@ -58,16 +59,27 @@ async function edit(req, res) {
 
 // Update the specified resource in storage.
 async function update(req, res) {
-  const articleId = req.params.id;
-  const { title, content, image } = req.body;
-  await Article.update(
-    { title: title, content: content, image: image },
-    {
-      where: {
-        id: articleId,
+  const form = formidable({
+    multiples: false,
+    uploadDir: __dirname + "/../public/img",
+    keepExtensions: true,
+  });
+
+  form.parse(req, async (err, fields, files) => {
+    const { title, content } = fields;
+
+    const articleId = req.params.id;
+    console.log(files.image);
+    await Article.update(
+      { title: title, content: content, image: files.image.newFilename },
+      {
+        where: {
+          id: articleId,
+        },
       },
-    },
-  );
+    );
+  });
+
   res.redirect("/panel/admin");
 }
 
