@@ -2,41 +2,43 @@
 = articles[2] %>
 
 <section class="container">
-  <div class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel slide w-50 mx-auto" data-bs-ride="carousel" id="carouselExampleControls">
     <div class="carousel-inner my-5">
       <div class="carousel-item active">
         <% if (firstArticle.image.includes("http")) {%>
-        <img
-          src="<%=firstArticle.image  %>"
-          class="img-fluid d-block mx-auto rounded"
-          alt="img-articulo"
-        />
-        <%} else {%>
-        <img
-          src="/img/<%= firstArticle.image  %>"
-          class="img-fluid d-block mx-auto rounded"
-          alt="img-articulo"
-        />
-        <%}%>
+        <a class="text-decoration-none" href="/articulos/<%= firstArticle.id %>">
+          <img
+            src="<%=firstArticle.image  %>"
+            class="img-fluid d-block mx-auto rounded imageCar"
+            alt="img-articulo"
+          />
+          <%} else {%>
+          <img
+            src="/img/<%= firstArticle.image  %>"
+            class="img-fluid d-block mx-auto rounded imageCar"
+            alt="img-articulo"
+          />
 
-        <div class="carousel-caption d-none d-md-block">
-          <h5><%= firstArticle.title%></h5>
-          <p><%= firstArticle.content.slice(0,12) %></p>
-        </div>
+          <%}%>
+          <div class="carousel-caption d-none d-md-block">
+            <h5><%= firstArticle.title%></h5>
+            <p><%= firstArticle.content.slice(0,12) %></p>
+          </div>
         </a>
       </div>
-      <a href="/articulos/<%= secondArticle.id %>"></a>
-      <div class="carousel-item">
-        <% if (secondArticle.image.includes("http")) {%>
+    </div>
+    <div class="carousel-item">
+      <% if (secondArticle.image.includes("http")) {%>
+      <a class="text-decoration-none" href="/articulos/<%= secondArticle.id %>">
         <img
           src="<%=secondArticle.image %>"
-          class="img-fluid d-block mx-auto rounded"
+          class="img-fluid d-block mx-auto rounded imageCar"
           alt="img-articulo"
         />
         <%} else {%>
         <img
           src="/img/<%= secondArticle.image  %>"
-          class="img-fluid d-block mx-auto rounded"
+          class="img-fluid d-block mx-auto rounded imageCar"
           alt="img-articulo"
         />
         <%}%>
@@ -45,28 +47,48 @@
           <h5><%= secondArticle.title%></h5>
           <p><%= secondArticle.content.slice(0,12) %></p>
         </div>
-      </div>
-      <a href="/articulos/<%= thirdArticle.id %>"></a>
-      <div class="carousel-item">
-        <% if (thirdArticle.image.includes("http")) {%>
-        <img
-          src="<%=thirdArticle.image %>"
-          class="img-fluid d-block mx-auto rounded"
-          alt="img-articulo"
-        />
-        <%} else {%>
-        <img
-          src="/img/<%= thirdArticle.image  %>"
-          class="img-fluid d-block mx-auto rounded"
-          alt="img-articulo"
-        />
-        <%}%>
-
-        <div class="carousel-caption d-none d-md-block">
-          <h5 class="fw-bold"><%= thirdArticle.title%></h5>
-          <p><%= thirdArticle.content.slice(0,12) %></p>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
+  <div class="carousel-item">
+    <% if (thirdArticle.image.includes("http")) {%>
+    <a class="text-decoration-none" href="/articulos/<%= thirdArticle.id %>">
+      <img
+        src="<%=thirdArticle.image %>"
+        class="img-fluid d-block mx-auto rounded imageCar"
+        alt="img-articulo"
+      />
+      <%} else {%>
+      <img
+        src="/img/<%= thirdArticle.image  %>"
+        class="img-fluid d-block mx-auto rounded imageCar"
+        alt="img-articulo"
+      />
+      <%}%>
+
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="fw-bold"><%= thirdArticle.title%></h5>
+        <p><%= thirdArticle.content.slice(0,12) %></p>
+      </div>
+    </a>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </section>
