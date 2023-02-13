@@ -1,7 +1,7 @@
-<section class="container text-center">
+<section class="container text-center my-5">
   <h1 class="fw-bold mt-4"><%= article.title %></h1>
-  <small class="fst-italic">Autor: <%= %> <%= %></small>
-  <small class="fst-italic">| <%= %></small>
+  <small class="fst-italic"><%= article.user.firstname %> <%= article.user.lastname %></small>
+  <small class="fst-italic">| <%= article.user.email %></small>
   <p class="fst-italic">| <%=format(article.createdAt,"dd MMMM yyyy") %></p>
   <img src="<%= article.image  %>" class="img-fluid d-block mx-auto rounded" alt="img-articulo" />
 

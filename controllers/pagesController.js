@@ -15,8 +15,7 @@
  * En caso de estar creando una API, este controlador carece de sentido y
  * no debería existir.
  */
-
-const articleController = require("./articleController");
+const { faker } = require("@faker-js/faker");
 const { Article, User } = require("../models");
 const { format, locale } = require("date-fns");
 
@@ -24,7 +23,7 @@ async function showHome(req, res) {
   const articles = await Article.findAll({
     order: [["createdAt", "DESC"]],
   });
-  res.render("home", { articles, format });
+  res.render("home", { articles, format, faker });
 }
 
 async function showContact(req, res) {

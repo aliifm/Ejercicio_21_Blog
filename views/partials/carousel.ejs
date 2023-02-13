@@ -1,0 +1,30 @@
+<% const firstArticle =articles[0] %> <% const secondArticle = articles[1] %> <% const thirdArticle
+= articles[2] %>
+
+<section class="container">
+  <div class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner my-5">
+      <div class="carousel-item active">
+        <img src="<%= firstArticle.image %>" class="d-block w-75 mx-auto" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5><%= firstArticle.title%></h5>
+          <p><%= firstArticle.content.slice(0,12) %></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%= secondArticle.image%>" class="d-block w-75 mx-auto" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5><%= secondArticle.title%></h5>
+          <p><%= secondArticle.content.slice(0,12) %></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%= thirdArticle.image %>" class="d-block w-75 mx-auto" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5><%= thirdArticle.title%></h5>
+          <p><%= thirdArticle.content.slice(0,12) %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
