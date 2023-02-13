@@ -42,8 +42,8 @@
             <td><%= item.image %></td>
             <td><%= item.userId %></td>
 
-            <td><%= item.updatedAt %></td>
-            <td><%= item.createdAt %></td>
+            <td><%=format(item.createdAt,"dd MMMM yyyy") %></td>
+            <td><%=format(item.createdAt,"dd MMMM yyyy") %></td>
 
             <td>
               <a href="/panel/admin/<%=item.id%>/edit "
