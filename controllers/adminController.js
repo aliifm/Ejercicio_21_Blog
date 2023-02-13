@@ -69,7 +69,7 @@ async function update(req, res) {
     const { title, content } = fields;
 
     const articleId = req.params.id;
-    console.log(files.image);
+
     await Article.update(
       { title: title, content: content, image: files.image.newFilename },
       {
