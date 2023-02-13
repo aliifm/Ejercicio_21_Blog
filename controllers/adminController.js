@@ -1,6 +1,6 @@
 const { format, formatDistance } = require("date-fns");
 const { Article, Comment, User } = require("../models");
-
+const formidable = require("formidable");
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
@@ -23,10 +23,28 @@ async function create(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const { title, content, image } = req.body;
-  const article = await Article.create({ title: title, content: content, image: image });
-  article.save();
-  res.redirect("/panel/admin");
+  const form = formidable({
+    multiples: false,
+    uploadDir: __dirname + "/../public/img",
+    keepExtensions: true,
+  });
+  form.parse(req, async (err, fields, files) => {
+    const { userId, title, content } = fields;
+
+    const article = await Article.create({
+      userId: userId,
+      title: title,
+      content: content,
+      image: files.image.newFilename,
+    });
+    article.save();
+    res.redirect("/");
+  });
+
+  //  const { title, content, image } = req.body;
+  //  const article = await Article.create({ title: title, content: content, image: image });
+  //article.save();
+  //res.redirect("/panel/admin");
 }
 
 // Show the form for editing the specified resource.

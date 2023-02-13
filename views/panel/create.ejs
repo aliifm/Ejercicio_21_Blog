@@ -17,7 +17,12 @@
     <%-include("../partials/navbar") %>
 
     <div class="container">
-      <form class="mx-auto border mt-5 shadow rounded" method="post" action="/panel/admin/create">
+      <form
+        class="mx-auto border mt-5 shadow rounded"
+        method="post"
+        action="/panel/admin/create"
+        enctype="multipart/form-data"
+      >
         <div class="bg-light m-0 p-0 w-100">
           <h1 class="fs-3 p-2">Create new article</h1>
         </div>
@@ -42,13 +47,7 @@
         </div>
         <div class="mb-3 p-2">
           <label for="image" class="form-label fw-bold">Image</label>
-          <input
-            type="text"
-            class="form-control"
-            id="image"
-            name="image"
-            placeholder="Enter image url..."
-          />
+          <input type="file" class="form-control" id="image" name="image" />
         </div>
         <div class="mb-3 p-2">
           <label for="userId" class="form-label fw-bold">UserID</label>
