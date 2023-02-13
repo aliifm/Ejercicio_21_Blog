@@ -37,7 +37,7 @@
           <tr>
             <th scope="row"><%= item.id %></th>
             <td><%= item.title %></td>
-            <td><%= item.content %></td>
+            <td><%= item.content.slice(0, 100) %>...</td>
             <td><%= item.image %></td>
             <td><%= item.userId %></td>
 
