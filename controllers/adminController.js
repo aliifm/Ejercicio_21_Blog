@@ -4,7 +4,7 @@ const formidable = require("formidable");
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Article.findAll();
-  res.render("panel/admin", { articles });
+  res.render("panel/admin", { articles, format });
 }
 
 // Display the specified resource.
