@@ -2,12 +2,7 @@ const { format, formatDistance } = require("date-fns");
 const { Article, Comment, User } = require("../models");
 
 // Display a listing of the resource.
-async function index(req, res) {
-  const articles = await Article.findAll({
-    order: [["createdAt", "DESC"]],
-  });
-  res.json(articles);
-}
+async function index(req, res) {}
 
 // Display the specified resource.
 async function show(req, res) {
