@@ -3,7 +3,15 @@
   <small class="fst-italic"><%= article.user.firstname %> <%= article.user.lastname %></small>
   <small class="fst-italic">| <%= article.user.email %></small>
   <p class="fst-italic">| <%=format(article.createdAt,"dd MMMM yyyy") %></p>
+  <% if (article.image.includes("http")) {%>
   <img src="<%= article.image  %>" class="img-fluid d-block mx-auto rounded" alt="img-articulo" />
+  <%} else {%>
+  <img
+    src="/img/<%= article.image  %>"
+    class="img-fluid d-block mx-auto rounded"
+    alt="img-articulo"
+  />
+  <%}%>
 
   <p class="text-center my-4 fs-4 fw-light lh-lg"><%= article.content %></p>
 </section>
