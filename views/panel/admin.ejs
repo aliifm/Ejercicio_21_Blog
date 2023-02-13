@@ -21,43 +21,45 @@
         <h2 class="d-inline">List of articles.</h2>
         <a href="/panel/admin/crear"><button class="btn btn-success btn-m">New</button></a>
       </div>
-      <table class="table table-striped table-hover border shadow mt-5">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Titulo</th>
-            <th scope="col ">Content</th>
-            <th scope="col">Image</th>
-            <th scope="çol">UserID</th>
-            <th scope="çol">CreatedAt</th>
-            <th scope="çol">UpdatedAt</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(item of articles) { %>
-          <tr>
-            <th scope="row"><%= item.id %></th>
-            <td><%= item.title %></td>
-            <td><%= item.content.slice(0, 100) %>...</td>
-            <td><%= item.image %></td>
-            <td><%= item.userId %></td>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover border shadow mt-5">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Titulo</th>
+              <th scope="col ">Content</th>
+              <th scope="col">Image</th>
+              <th scope="çol">UserID</th>
+              <th scope="çol">CreatedAt</th>
+              <th scope="çol">UpdatedAt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(item of articles) { %>
+            <tr>
+              <th scope="row"><%= item.id %></th>
+              <td><%= item.title %></td>
+              <td><%= item.content.slice(0, 100) %>...</td>
+              <td><%= item.image %></td>
+              <td><%= item.userId %></td>
 
-            <td><%= item.updatedAt %></td>
-            <td><%= item.createdAt %></td>
+              <td><%=format(item.createdAt,"dd MMMM yyyy") %></td>
+              <td><%=format(item.createdAt,"dd MMMM yyyy") %></td>
 
-            <td>
-              <a href="/panel/admin/<%=item.id%>/edit "
-                ><button class="btn btn-dark mx-2 mb-2">Edit</button></a
-              >
+              <td>
+                <a href="/panel/admin/<%=item.id%>/edit "
+                  ><button class="btn btn-dark mx-2 mb-2">Edit</button></a
+                >
 
-              <a href="/panel/admin/<%=item.id%>/destroy/"
-                ><button type="button" class="btn btn-danger">Delete</button></a
-              >
-            </td>
-            <% } %>
-          </tr>
-        </tbody>
-      </table>
+                <a href="/panel/admin/<%=item.id%>/destroy/"
+                  ><button type="button" class="btn btn-danger">Delete</button></a
+                >
+              </td>
+              <% } %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <%-include("../partials/footer") %>
