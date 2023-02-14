@@ -10,7 +10,6 @@ const APP_PORT = process.env.APP_PORT || 3000; //Requiriendo la variable de ento
 const app = express();
 
 // Passport
-
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -47,20 +46,6 @@ passport.deserializeUser(async function (id, done) {
     done(error);
   }
 });
-app.get("/welcome", function (req, res) {
-  if (req.isAuthenticated()) {
-    res.send(`Te damos la bienvenida, ${req.user.firstname}`);
-  } else {
-    res.redirect("/login");
-  }
-});
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/welcome",
-    failureRedirect: "/login",
-  }),
-);
 
 app.use(express.static("public")); //Ver carpetas public express (css-js-img)
 app.use(express.urlencoded({ extended: true })); //Permite usar la info de formularios (req.body)
