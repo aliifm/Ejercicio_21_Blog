@@ -10,6 +10,10 @@
   "author": "Hack Academy",
   "license": "ISC",
   "dependencies": {
+<<<<<<< Updated upstream
+=======
+    "bcrypt": "^5.1.0",
+>>>>>>> Stashed changes
     "bcryptjs": "^2.4.3",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
