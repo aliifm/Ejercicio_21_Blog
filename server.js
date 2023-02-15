@@ -8,11 +8,13 @@ const dbInitialSetup = require("./dbInitialSetup"); //Requiriendo Datos y sincro
 const { json } = require("sequelize"); //---
 const APP_PORT = process.env.APP_PORT || 3000; //Requiriendo la variable de entorno o va a al puerto 3000.
 const app = express();
+const bcrypt = require("bcryptjs");
 
 // Passport
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+const { User } = require("./models");
 
 // Passport-codigo
 
@@ -24,28 +26,62 @@ app.use(
   }),
 );
 app.use(passport.session());
+
 passport.use(
-  new LocalStrategy(async function (username, password, done) {
+  new LocalStrategy(async (username, password, cb) => {
     try {
-      const user = User.findOne({
-        where: { email: username },
-      });
+      const user = await User.findOne({ where: { username } });
+      if (!user) {
+        console.log("Nombre de usuario no existe.");
+        return cb(null, false, { message: "Credenciales incorrectas." });
+      }
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+        console.log("La contraseña es inválida.");
+        return cb(null, false, { message: "Credenciales incorrectas." });
+      }
+      console.log("Credenciales verificadas correctamente");
+      return cb(null, user);
     } catch (error) {
-      return done(error);
+      cb(error);
     }
   }),
 );
-passport.serializeUser(function (user, done) {
-  done(null, user.id);
+
+// passport.use(
+//   new LocalStrategy(async function (username, password, done) {
+//     try {
+//       const user = User.findOne({
+//         where: { email: username },
+//       });
+//     } catch (error) {
+//       return done(error);
+//     }
+//   }),
+// );
+passport.serializeUser((user, cb) => {
+  cb(null, user.id);
 });
-passport.deserializeUser(async function (id, done) {
+passport.deserializeUser(async (id, cb) => {
   try {
     const user = await User.findByPk(id);
-    done(null, user);
-  } catch (error) {
-    done(error);
+    cb(null, user); // Usuario queda disponible en req.user.
+  } catch (err) {
+    cb(err, user);
   }
 });
+
+// passport.serializeUser(function (user, done) {
+//   done(null, user.id);
+// });
+// passport.deserializeUser(async function (id, done) {
+//   try {
+//     const user = await User.findByPk(id);
+//     done(null, user);
+//   } catch (error) {
+//     done(error);
+//   }
+// });
 
 app.use(express.static("public")); //Ver carpetas public express (css-js-img)
 app.use(express.urlencoded({ extended: true })); //Permite usar la info de formularios (req.body)

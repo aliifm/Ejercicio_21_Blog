@@ -1,10 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const pagesController = require("../controllers/pagesController");
-const loginController = require("../controllers/loginController");
+const authController = require("../controllers/authController");
 const passport = require("passport");
 const session = require("express-session");
 const LocalStrategy = require("passport-local");
+const isAuthenticated = require("../middlewares/isAuthenticated");
+
+//
+
 router.get("/", pagesController.showHome);
 
 router.get("/contact", (req, res) => {
@@ -23,23 +27,22 @@ router.get("/about-us", (req, res) => {
 //   }
 // });
 
-router.get("/register", loginController.register);
+router.get("/register", authController.register);
 
-router.post("/register", loginController.registerPost);
+router.post("/register", authController.registerPost);
 
-router.get("/logout", loginController.logout);
+router.get("/logout", authController.logout); //Este va en private routes
 
-router.get("/login", loginController.show);
+router.get("/login", authController.show);
+
+router.post("/login", authController.login);
 
 router.get;
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/welcome",
-    failureRedirect: "/login",
-  }),
-);
+// router.post(
+//   "/login",
+//   ,
+// );
 
 module.exports = router;
 

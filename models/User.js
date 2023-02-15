@@ -24,6 +24,12 @@ class User extends Model {
         avatar: {
           type: DataTypes.STRING,
         },
+        username: {
+          type: DataTypes.STRING,
+        },
+        password: {
+          type: DataTypes.STRING,
+        },
       },
       {
         sequelize,
