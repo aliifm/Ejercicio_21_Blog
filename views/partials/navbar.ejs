@@ -29,16 +29,52 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/contact">Contacts</a>
         </li>
+        <% if (user !== undefined){ %>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/panel/admin"
             ><ion-icon name="person-circle-outline"></ion-icon> Admin</a
           >
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/logout"
-            ><ion-icon name="person-circle-outline"></ion-icon> Log Out</a
+        <% } else {%>
+
+        <li class="nav-item d-none">
+          <a class="nav-link active" aria-current="page" href="/panel/admin"
+            ><ion-icon name="person-circle-outline"></ion-icon> Admin</a
           >
         </li>
+        <% } %> <% if (user === undefined){ %>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button
+              class="btn text-white dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Log in
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/login">Iniciar sesión</a></li>
+            </ul>
+          </div>
+        </li>
+        <% } else { %>
+        <li>
+          <div class="dropdown">
+            <button
+              class="btn text-white dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Log out
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/panel/logout">Cerrar sesión</a></li>
+            </ul>
+          </div>
+        </li>
+        <% } %>
       </ul>
     </div>
   </div>

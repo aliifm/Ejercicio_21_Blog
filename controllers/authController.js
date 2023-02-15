@@ -1,6 +1,7 @@
 const { User } = require("../models");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+const article = require("../models/Article");
 
 function show(req, res) {
   res.render("login");
@@ -11,11 +12,25 @@ function register(req, res) {
 }
 
 function registerPost(req, res) {
-  res.send("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  // const user =
 }
 
+// const { userId, title, content } = fields;
+
+// const article = await Article.create({
+//   userId: userId,
+//   title: title,
+//   content: content,
+//   image: files.image.newFilename,
+// });
+
+// article.save();
+// res.redirect("/");
+
 function logout(req, res) {
-  res.render("logout");
+  req.logout(() => {
+    res.redirect("/");
+  });
 }
 
 const login = passport.authenticate("local", {

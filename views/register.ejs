@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <%-include("partials/navbar") %>
     <section class="vh-100" style="background-color: #eee">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -28,28 +29,74 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="text" id="form3Example1c" class="form-control" />
-                          <label class="form-label" for="form3Example1c">Your Name</label>
+                          <input
+                            type="text"
+                            id="firstname"
+                            name="firstname"
+                            required
+                            class="form-control"
+                          />
+                          <label class="form-label" for="firstname">First Name</label>
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input
+                            type="text"
+                            id="lastname"
+                            name="lastname"
+                            required
+                            class="form-control"
+                          />
+                          <label class="form-label" for="lastname">Last Name</label>
                         </div>
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="email" id="form3Example3c" class="form-control" />
-                          <label class="form-label" for="form3Example3c">Your Email</label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="form-control"
+                          />
+                          <label class="form-label" for="email">Email</label>
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input
+                            type="email"
+                            id="username"
+                            name="username"
+                            required
+                            class="form-control"
+                          />
+                          <label class="form-label" for="username">Username</label>
                         </div>
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="form3Example4c" class="form-control" />
-                          <label class="form-label" for="form3Example4c">Password</label>
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            required
+                            class="form-control"
+                          />
+                          <label class="form-label" for="password">Password</label>
                         </div>
                       </div>
 
-                      <div class="d-flex flex-row align-items-center mb-4">
+                      <!-- <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
                           <input type="password" id="form3Example4cd" class="form-control" />
@@ -57,9 +104,9 @@
                             >Repeat your password</label
                           >
                         </div>
-                      </div>
+                      </div> -->
 
-                      <div class="form-check d-flex justify-content-center mb-5">
+                      <!-- <div class="form-check d-flex justify-content-center mb-5">
                         <input
                           class="form-check-input me-2"
                           type="checkbox"
@@ -69,10 +116,10 @@
                         <label class="form-check-label" for="form2Example3">
                           I agree all statements in <a href="#!">Terms of service</a>
                         </label>
-                      </div>
+                      </div> -->
 
-                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                      <div class="mt-5">
+                        <button type="submit" class="btn btn-success btn-lg">Register</button>
                       </div>
                     </form>
                   </div>
@@ -80,7 +127,7 @@
                     class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
                   >
                     <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                      src="https://media.discordapp.net/attachments/852698062668955739/1075485591803809902/undraw_secure_login_pdn4.png?width=973&height=670"
                       class="img-fluid"
                       alt="Sample image"
                     />
@@ -92,6 +139,7 @@
         </div>
       </div>
     </section>
+    <%-include("partials/footer") %>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

@@ -15,6 +15,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const { User } = require("./models");
+const compartirAVistas = require("./middlewares/compartirAVistas");
 
 // Passport-codigo
 
@@ -82,7 +83,7 @@ passport.deserializeUser(async (id, cb) => {
 //     done(error);
 //   }
 // });
-
+app.use(compartirAVistas);
 app.use(express.static("public")); //Ver carpetas public express (css-js-img)
 app.use(express.urlencoded({ extended: true })); //Permite usar la info de formularios (req.body)
 

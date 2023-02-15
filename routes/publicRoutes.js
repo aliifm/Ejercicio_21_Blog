@@ -31,8 +31,6 @@ router.get("/register", authController.register);
 
 router.post("/register", authController.registerPost);
 
-router.get("/logout", authController.logout); //Este va en private routes
-
 router.get("/login", authController.show);
 
 router.post("/login", authController.login);
