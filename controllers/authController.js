@@ -11,21 +11,18 @@ function register(req, res) {
   res.render("register");
 }
 
-function registerPost(req, res) {
-  // const user =
+async function registerPost(req, res) {
+  const user = await User.create({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    username: req.body.username,
+    password: await bcrypt.hash(req.body.password, 8),
+  });
+
+  user.save();
+  res.redirect("/");
 }
-
-// const { userId, title, content } = fields;
-
-// const article = await Article.create({
-//   userId: userId,
-//   title: title,
-//   content: content,
-//   image: files.image.newFilename,
-// });
-
-// article.save();
-// res.redirect("/");
 
 function logout(req, res) {
   req.logout(() => {
