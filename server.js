@@ -9,6 +9,44 @@ const { json } = require("sequelize"); //---
 const APP_PORT = process.env.APP_PORT || 3000; //Requiriendo la variable de entorno o va a al puerto 3000.
 const app = express();
 
+// Passport
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+
+// Passport-codigo
+
+app.use(
+  session({
+    secret: "algunTextoSecreto",
+    resave: false,
+    saveUninitialized: false,
+  }),
+);
+app.use(passport.session());
+passport.use(
+  new LocalStrategy(async function (username, password, done) {
+    try {
+      const user = User.findOne({
+        where: { email: username },
+      });
+    } catch (error) {
+      return done(error);
+    }
+  }),
+);
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+passport.deserializeUser(async function (id, done) {
+  try {
+    const user = await User.findByPk(id);
+    done(null, user);
+  } catch (error) {
+    done(error);
+  }
+});
+
 app.use(express.static("public")); //Ver carpetas public express (css-js-img)
 app.use(express.urlencoded({ extended: true })); //Permite usar la info de formularios (req.body)
 
