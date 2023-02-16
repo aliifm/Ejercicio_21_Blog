@@ -7,6 +7,7 @@ const userRoutes = require("./userRoutes");
 const articleRoutes = require("./articleRoutes");
 const commentRoutes = require("./commentRoutes");
 const apiRoutes = require("./apiRoutes");
+const compartirAVistas = require("../middlewares/compartirAVistas");
 
 /**
  * Otra alternativa podría ser organizar las rutas según su nivel de
@@ -28,7 +29,7 @@ module.exports = (app) => {
    * nombres de variables, funciones, etc, que siempre se recomienda que estén
    * en inglés.
    */
-
+  app.use(compartirAVistas);
   app.use("/usuarios", userRoutes);
   app.use("/articulos", articleRoutes);
   app.use("/comentarios", commentRoutes);
