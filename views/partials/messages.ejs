@@ -1,0 +1,18 @@
+<%  if (message){ %> 
+    
+
+  <% setTimeout(() => { %>
+
+    <div class="container alert alert-success d-flex align-items-center mt-2" id="alertMessage" role="alert">
+        
+        <div id="alertMessage">
+          <%= message %>
+        </div>
+
+    </div>
+
+ <% }, 3000) %>
+   
+
+    
+<% } %>

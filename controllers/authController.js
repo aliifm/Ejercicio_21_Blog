@@ -33,6 +33,7 @@ function logout(req, res) {
 const login = passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/login",
+  //failureFlash: true
 });
 
 // async function login(req, res) {

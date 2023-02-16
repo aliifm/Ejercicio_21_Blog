@@ -8,8 +8,11 @@ async function store(req, res) {
     content: comment,
     userId: Math.floor(Math.random() * 11),
     articleId: articleId,
+  
   });
   data.save();
+
+  req.flash('message', 'Comment Added Successfully');
   res.redirect(`/articulos/${articleId}`);
 }
 

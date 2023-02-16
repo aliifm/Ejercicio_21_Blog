@@ -39,6 +39,8 @@ async function store(req, res) {
     });
 
     article.save();
+
+    req.flash('message', 'Article Added Successfully');
     res.redirect("/");
   });
 
@@ -79,7 +81,7 @@ async function update(req, res) {
       },
     );
   });
-
+  req.flash('message', 'Article Updated Successfully');
   res.redirect("/panel/admin");
 }
 
@@ -92,7 +94,7 @@ async function destroy(req, res) {
     },
     force: true,
   });
-
+  req.flash('message', 'Article Deleted Successfully');
   res.redirect("/panel/admin");
 }
 

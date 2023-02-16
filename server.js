@@ -10,12 +10,18 @@ const APP_PORT = process.env.APP_PORT || 3000; //Requiriendo la variable de ento
 const app = express();
 const bcrypt = require("bcryptjs");
 
+
 // Passport
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const { User } = require("./models");
 const compartirAVistas = require("./middlewares/compartirAVistas");
+const messageFlash = require("./middlewares/messageFlash")
+
+
+// Flash
+const flash = require('express-flash');
 
 // Passport-codigo
 
@@ -26,6 +32,9 @@ app.use(
     saveUninitialized: false,
   }),
 );
+
+app.use(flash());
+
 app.use(passport.session());
 
 passport.use(
@@ -84,6 +93,7 @@ passport.deserializeUser(async (id, cb) => {
 //   }
 // });
 app.use(compartirAVistas);
+app.use(messageFlash);
 app.use(express.static("public")); //Ver carpetas public express (css-js-img)
 app.use(express.urlencoded({ extended: true })); //Permite usar la info de formularios (req.body)
 
