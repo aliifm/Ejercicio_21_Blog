@@ -4,11 +4,12 @@ const adminController = require("../controllers/adminController");
 const authController = require("../controllers/authController");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 const notAllowedReader = require("../middlewares/notAllowedReader");
+const allowedWriter = require("../middlewares/allowedWriter");
 
 // Rutas relacionadas al panel de control (Admin):
 // ...
 router.use(isAuthenticated);
-router.get("/admin", notAllowedReader, adminController.index);
+router.get("/admin", notAllowedReader, allowedWriter, adminController.index);
 
 router.get("/admin/crear", adminController.create);
 

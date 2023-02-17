@@ -11,9 +11,8 @@ async function index(req, res) {
 // Display the specified resource.
 async function show(req, res) {
   const articleId = req.params.id;
-  const article = await Article.findOne({
-    where: { id: articleId },
-  });
+  const article = await Article.findOne({ where: { id: articleId } });
+
   res.render("article", { article });
 }
 
