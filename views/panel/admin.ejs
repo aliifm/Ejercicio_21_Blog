@@ -38,7 +38,7 @@
             </tr>
           </thead>
           <tbody>
-            <% for(item of articles) { %> <% if (item.userId === user.id) { %>
+            <% for(item of articles) { %>
             <tr>
               <th scope="row"><%= item.id %></th>
               <td><%= item.title %></td>
@@ -58,7 +58,7 @@
                   ><button type="button" class="btn btn-danger w-100">Delete</button></a
                 >
               </td>
-              <% } %> <% } %>
+              <% } %>
             </tr>
           </tbody>
         </table>

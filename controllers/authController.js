@@ -18,6 +18,7 @@ async function registerPost(req, res) {
     email: req.body.email,
     username: req.body.username,
     password: await bcrypt.hash(req.body.password, 8),
+    roleCode: 100,
   });
 
   user.save();

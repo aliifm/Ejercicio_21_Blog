@@ -6,18 +6,11 @@ faker.locale = "es";
 
 module.exports = async () => {
   const users = [];
-  /*
-  users.push({
-    firstname: Pepito,
-    lastname: Gonzalez,
-    email: pepito@gmail.com,
-    avatar: http:,
-    username: pepigon,
-    password: root,
-  });
-  */
+  const roleNames = ["reader", "writer", "editor", "admin"];
+  const roleCodes = [100, 200, 300, 400];
 
   for (let i = 0; i < 10; i++) {
+    const randomNumber = faker.datatype.number({ min: 0, max: 3 });
     users.push({
       firstname: faker.name.firstName(),
       lastname: faker.name.lastName(),
@@ -25,6 +18,8 @@ module.exports = async () => {
       avatar: faker.image.avatar(true),
       username: faker.internet.userName(),
       password: await bcrypt.hash("1234", 8),
+      roleName: roleNames[randomNumber],
+      roleCode: roleCodes[randomNumber],
     });
   }
 

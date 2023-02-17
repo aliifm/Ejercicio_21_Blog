@@ -15,9 +15,7 @@ class User extends Model {
         lastname: {
           type: DataTypes.STRING,
         },
-        permissions: {
-          type: DataTypes.TINYINT,
-        },
+
         email: {
           type: DataTypes.STRING,
         },
@@ -29,6 +27,12 @@ class User extends Model {
         },
         password: {
           type: DataTypes.STRING,
+        },
+        roleName: {
+          type: DataTypes.STRING,
+        },
+        roleCode: {
+          type: DataTypes.INTEGER,
         },
       },
       {

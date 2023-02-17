@@ -2,6 +2,7 @@ const { format, formatDistance } = require("date-fns");
 const { Article, Comment, User } = require("../models");
 const formidable = require("formidable");
 // Display a listing of the resource.
+
 async function index(req, res) {
   const articles = await Article.findAll();
   res.render("panel/admin", { articles, format });
@@ -40,7 +41,7 @@ async function store(req, res) {
 
     article.save();
 
-    req.flash('message', 'Article Added Successfully');
+    req.flash("message", "Article Added Successfully");
     res.redirect("/");
   });
 
@@ -81,7 +82,7 @@ async function update(req, res) {
       },
     );
   });
-  req.flash('message', 'Article Updated Successfully');
+  req.flash("message", "Article Updated Successfully");
   res.redirect("/panel/admin");
 }
 
@@ -94,7 +95,7 @@ async function destroy(req, res) {
     },
     force: true,
   });
-  req.flash('message', 'Article Deleted Successfully');
+  req.flash("message", "Article Deleted Successfully");
   res.redirect("/panel/admin");
 }
 
