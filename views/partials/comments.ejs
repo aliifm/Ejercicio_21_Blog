@@ -5,6 +5,7 @@
   </div>
   <div class="col-10 text-white">
     <h5><%= comment.user.firstname%></h5>
+
     <small class="fst-italic"><%= formatDistance(new Date(),comment.createdAt) %></small>
     <p class="fw-light"><%= comment.content %></p>
   </div>
