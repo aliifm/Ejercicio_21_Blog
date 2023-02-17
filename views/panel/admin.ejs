@@ -54,9 +54,17 @@
                   ><button class="btn btn-dark mb-2 w-100">Edit</button></a
                 >
 
+                <% if( locals.user.roleCode < 400 && item.userId !== locals.user.id ) { %>
+
+                <a href="/panel/admin/<%=item.id%>/destroy/"
+                  ><button type="button" class="btn btn-danger w-100 d-none">Delete</button></a
+                >
+                <% } else { %>
+
                 <a href="/panel/admin/<%=item.id%>/destroy/"
                   ><button type="button" class="btn btn-danger w-100">Delete</button></a
                 >
+                <% } %>
               </td>
               <% } %>
             </tr>
