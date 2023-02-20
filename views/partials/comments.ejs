@@ -1,4 +1,5 @@
 <% for (const comment of comments) { %>
+
 <div class="row rounded gy-2 bg-dark bg-gradient my-3 py-2 mx-auto">
   <div class="col-2">
     <img src="<%= comment.user.avatar  %>" class="img-fluid rounded-circle" alt="img-avatar" />
@@ -8,6 +9,10 @@
 
     <small class="fst-italic"><%= formatDistance(new Date(),comment.createdAt) %></small>
     <p class="fw-light"><%= comment.content %></p>
+
+    <% if( locals.user !== undefined && locals.user.roleCode >= 400 ) { %>
+    <a href="" class="text-decoration-none"> <ion-icon name="trash-outline"></ion-icon></a>
+    <% } %>
   </div>
 </div>
 <% } %>

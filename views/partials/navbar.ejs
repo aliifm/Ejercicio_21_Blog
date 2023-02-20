@@ -37,24 +37,19 @@
         </li>
         <% } else { %>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/"> Welcome <%= user.firstname %></a>
+          <a class="nav-link" aria-current="page" href="/">
+            <ion-icon name="person-circle-outline"></ion-icon> Welcome <%= user.firstname %></a
+          >
         </li>
 
         <% } %> <% if (locals.user !== undefined && locals.user.roleCode >= 200) { %>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/panel/admin"
-            ><ion-icon name="person-circle-outline"></ion-icon> Admin</a
-          >
+          <a class="nav-link" aria-current="page" href="/panel/admin"> Admin Articles</a>
         </li>
 
-        <% } %> <% if (locals.user !== undefined && locals.user.permissions === 400){ %>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/panel/admin"
-            ><ion-icon name="person-circle-outline"></ion-icon> Admin</a
-          >
-        </li>
-
-        <% } %>
+        <% } %> 
+        
+       
         <li class="nav-item">
           <a class="nav-link text-red" aria-current="page" href="/panel/logout"> Logout</a>
         </li>

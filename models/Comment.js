@@ -11,6 +11,7 @@ class Comment extends Model {
       {
         sequelize,
         modelName: "comment",
+       // paranoid: true,
       },
     );
     return Comment;

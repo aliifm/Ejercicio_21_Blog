@@ -23,4 +23,6 @@ router.get("/admin/:id/destroy", adminController.destroy);
 
 router.get("/logout", authController.logout);
 
+router.get("/admin/usersList", adminController.showUser);
+
 module.exports = router;

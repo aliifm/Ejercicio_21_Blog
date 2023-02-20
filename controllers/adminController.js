@@ -98,6 +98,11 @@ async function destroy(req, res) {
   res.redirect("/panel/admin");
 }
 
+async function showUser(req, res) {
+  const users = await User.findAll();
+  res.render("users-list", { users /*, format */ });
+}
+
 // Otros handlers...
 // ...
 
@@ -109,4 +114,5 @@ module.exports = {
   edit,
   update,
   destroy,
+  showUser,
 };

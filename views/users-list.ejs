@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <%-include("../partials/navbar") %>
+    <%-include("./partials/navbar") %>
 
     <section class="container">
       <!-- Flash -->
-      <%-include("../partials/messages") %>
+      <%-include("./partials/messages") %>
 
       <div class="d-flex justify-content-between pt-4">
-        <h2 class="d-inline">List of articles.</h2>
+        <h2 class="d-inline">List of users.</h2>
 
         <a href="/panel/admin/usersList"><button class="btn btn-dark btn-m">Users</button></a>
         <a href="/panel/admin/crear"><button class="btn btn-success btn-m">New</button></a>
@@ -31,42 +31,30 @@
           <thead>
             <tr>
               <th scope="col">Id</th>
-              <th scope="col">Titulo</th>
-              <th scope="col ">Content</th>
-              <th scope="col">Image</th>
-              <th scope="col">UserID</th>
-              <th scope="col">CreatedAt</th>
-              <th scope="col">UpdatedAt</th>
+              <th scope="col">Firstname</th>
+              <th scope="col ">Lastname</th>
+              <th scope="col">Email</th>
+              <th scope="col">roleCode</th>
+              <th scope="col">Options</th>
             </tr>
           </thead>
           <tbody>
-            <% for(item of articles) { %>
+            <% for(user of users) { %>
             <tr>
-              <th scope="row"><%= item.id %></th>
-              <td><%= item.title %></td>
-              <td><%= item.content.slice(0, 100) %>...</td>
-              <td><%= item.image %></td>
-              <td><%= item.userId %></td>
-
-              <td><%=format(item.createdAt,"dd MMMM yyyy") %></td>
-              <td><%=format(item.updatedAt,"dd MMMM yyyy") %></td>
+              <th scope="row"><%= user.id %></th>
+              <td><%= user.firstname %></td>
+              <td><%= user.lastname %>...</td>
+              <td><%= user.email %></td>
+              <td><%= user.roleCode %></td>
 
               <td>
-                <a href="/panel/admin/<%=item.id%>/edit "
+                <a href="/panel/admin/<%=user.id%>/edit "
                   ><button class="btn btn-dark mb-2 w-100">Edit</button></a
                 >
 
-                <% if( locals.user.roleCode < 400 && item.userId !== locals.user.id ) { %>
-
-                <a href="/panel/admin/<%=item.id%>/destroy/"
-                  ><button type="button" class="btn btn-danger w-100 d-none">Delete</button></a
-                >
-                <% } else { %>
-
-                <a href="/panel/admin/<%=item.id%>/destroy/"
+                <a href="/panel/admin/<%=user.id%>/destroy/"
                   ><button type="button" class="btn btn-danger w-100">Delete</button></a
                 >
-                <% } %>
               </td>
               <% } %>
             </tr>
@@ -75,7 +63,7 @@
       </div>
     </section>
 
-    <%-include("../partials/footer") %>
+    <%-include("./partials/footer") %>
 
     <script src="js/app.js"></script>
 
