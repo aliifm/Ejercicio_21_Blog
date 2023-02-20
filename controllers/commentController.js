@@ -1,4 +1,4 @@
-const { Comment, User } = require("../models");
+const { Comment, Article, User } = require("../models");
 
 // Store a newly created resource in storage.
 async function store(req, res) {
@@ -12,7 +12,6 @@ async function store(req, res) {
     articleId: articleId,
   });
 
- 
   data.save();
 
   req.flash("message", "Comment Added Successfully");
@@ -27,12 +26,26 @@ async function update(req, res) {}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
+  const commentId = req.params.id;
+  await Comment.destroy({
+    where: {
+      id: commentId,
+    },
+    force: true,
+  });
+  req.flash("message", "Comment Deleted Successfully");
+  res.redirect("/panel/admin/comments-list");
+}
+
 /*   const { id } = req.params;
   await Comment.destroy({ where: { id: id }, force: false }); // elimina el comentario de forma "paranoid"
   req.flash("message", "Comment deleted successfully");
   res.redirect(`/articulos/${articleId}`); */
-}
 
+async function showComments(req, res) {
+  const comments = await Comment.findAll({ include: [User, Article] });
+  res.render("comments-list", { comments });
+}
 // Otros handlers...
 // ...
 
@@ -41,4 +54,5 @@ module.exports = {
   edit,
   update,
   destroy,
+  showComments,
 };

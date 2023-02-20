@@ -100,7 +100,7 @@ async function destroy(req, res) {
 
 async function showUser(req, res) {
   const users = await User.findAll();
-  res.render("users-list", { users /*, format */ });
+  res.render("users-list", { users });
 }
 
 // Otros handlers...

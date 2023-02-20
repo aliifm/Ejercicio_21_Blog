@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const adminController = require("../controllers/adminController");
 const authController = require("../controllers/authController");
+const commentController = require("../controllers/commentController");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 const notAllowedReader = require("../middlewares/notAllowedReader");
 const allowedWriter = require("../middlewares/allowedWriter");
@@ -24,5 +25,9 @@ router.get("/admin/:id/destroy", adminController.destroy);
 router.get("/logout", authController.logout);
 
 router.get("/admin/usersList", adminController.showUser);
+
+router.get("/admin/comments-list", commentController.showComments);
+
+router.get("/admin/:id/comment-destroy", commentController.destroy);
 
 module.exports = router;
