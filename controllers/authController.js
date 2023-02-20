@@ -2,6 +2,7 @@ const { User } = require("../models");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const article = require("../models/Article");
+const jwt = require("jsonwebtoken");
 
 function show(req, res) {
   res.render("login");
@@ -43,10 +44,22 @@ const login = passport.authenticate("local", {
 //   console.log(isValidPassword);
 // }
 
+async function tokens(req, res) {
+  const user = await User.findOne({ where: { email: req.body.email } });
+  if (user) {
+    const match = bcrypt.compare(req.body.password, user.password);
+    if (match) {
+      const token = jwt.sign({ sub: "user123" }, "UnStringMuySecreto");
+      res.json({ token });
+    }
+  }
+}
+
 module.exports = {
   show,
   register,
   registerPost,
   logout,
   login,
+  tokens,
 };

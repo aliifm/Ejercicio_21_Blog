@@ -9,6 +9,9 @@ const allowedWriter = require("../middlewares/allowedWriter");
 
 // Rutas relacionadas al panel de control (Admin):
 // ...
+
+router.post("/tokens", authController.tokens);
+
 router.use(isAuthenticated);
 router.get("/admin", notAllowedReader, allowedWriter, adminController.index);
 

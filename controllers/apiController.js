@@ -18,6 +18,8 @@ async function show(req, res) {
   res.json(article);
 }
 
+
+
 module.exports = {
   index,
   show,

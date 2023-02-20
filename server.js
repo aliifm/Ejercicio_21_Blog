@@ -8,7 +8,7 @@ const dbInitialSetup = require("./dbInitialSetup"); //Requiriendo Datos y sincro
 const { json } = require("sequelize"); //---
 const APP_PORT = process.env.APP_PORT || 3000; //Requiriendo la variable de entorno o va a al puerto 3000.
 const app = express();
-
+app.use(express.json());
 const passport = require("./passport/passport");
 passport(app);
 app.use(express.static("public")); //Ver carpetas public express (css-js-img)
