@@ -49,7 +49,7 @@ async function tokens(req, res) {
   if (user) {
     const match = bcrypt.compare(req.body.password, user.password);
     if (match) {
-      const token = jwt.sign({ sub: "user123" }, "UnStringMuySecreto");
+      const token = jwt.sign({ sub: user.id }, "UnStringMuySecreto");
       res.json({ token });
     }
   }

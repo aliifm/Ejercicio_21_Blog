@@ -1,9 +1,22 @@
 const { Article } = require("../models");
+const { Op } = require("sequelize");
+const { query } = require("express");
 
 // Display a listing of the resource.
 async function index(req, res) {
+  const title = req.query.title;
+  if (title) {
+    const article = await Article.findAll({
+      where: {
+        title: {
+          [Op.substring]: `${title}`,
+        },
+      },
+    });
+    return res.json(articles);
+  }
   const articles = await Article.findAll();
-  res.json(articles);
+  return res.json(articles);
 }
 
 // Display the specified resource.
@@ -17,19 +30,6 @@ async function show(req, res) {
 
   res.json(articles);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = {
   index,
