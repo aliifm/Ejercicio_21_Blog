@@ -16,6 +16,8 @@ module.exports = async () => {
     });
   }
 
+  //aqui se tiene que armar los articulos
+
   await Article.bulkCreate(articles);
   console.log("[Database] Se corrió el seeder de Articles.");
 };
